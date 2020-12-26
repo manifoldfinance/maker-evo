@@ -2,13 +2,13 @@
 MIP#: XX
 Title: Volumetric Price Stabilization for Reducing Risk for new Assets
 Author(s): Sam Bacha (@sambacha)
-Contributors:
+Contributors: Sam Bacha (@sambacha) , Manifold Finance / Freight Trust
 Type: Technical
 Status: Pre-MIP Discussion
 Date Proposed: 2020-12-25
-Date Ratified: Pending
+Date Ratified:
 Dependencies: N/A
-Replaces: n/a
+Replaces: N/A
 License: SSPL-1.0 / AGPL
 ```
 
@@ -34,11 +34,15 @@ EVO Protocol calculates an average transfer rate for all holders of an ERC20 ass
 
 Think of this is a 'Uber Surchage' or a '401 K Penalty' imposed on _bulge bracket_ transactions. In essence this can serve as a _anti rug pull_ mechanism if so desired.The fees imposed on such transactions can be redistributed to a _Mutual Assurance Fund_ that can act as an insurance vault to further protect the MakerDAO Ecosystem or can be returned to all deposit addresses as a form of _Non Inflationary Staking Rewards_.
 
-Only the period of recalculation, the `Market Period`, is pre-determined. No admin key, no other centralized form of control exists in the EVO Protocol.
+Only the period of recalculation, the `Market Period` / `Contract Rollover`, is pre-determined. No admin key, no other centralized form of control exists in the EVO Protocol.
+
+Minting works much like `aDAI` or `cDAI`, we use the prefix. `mkr-` to denote assets that have been deposited into the protocol.
 
 ## EVO Protocol
 
-**EVO Protocol, short of Embedded Volumetric Optionality, is a price stabilizing (re: accelerating / deacceleralting) middleware protocol that enables almost any ERC-20 asset to reach price stability. It achieves this by managing _volume_.**
+### Please Note this is a very abridged overview, please read the HackMD or the Full Whitepaper for a more indepth overview!
+
+**EVO Protocol, short of Embedded Volumetric Optionality, is a price stabilizing (re: accelerating / decelerating) middleware protocol that enables almost any ERC-20 asset to reach price stability. It achieves this by managing _volume_.**
 
 The token price is determined dynamically(and individually for each holder) based on the information stored or updated in the smart contract during previous transactions giving us the equation:
 
@@ -51,9 +55,6 @@ The first component with the token - base ratio \[Dt/St\] under the square root 
 Ergo, the component \[I\_{t+1}^{\prime}(h, a)\] is called the discounted interest rate and it can grow proportionally to a within a range of \[[0, 0.24]\] of $$a$$.
 
 Higher interest payouts can slow down, decelerate, the price movement. Interest rate determines how fast, or acceleration, such price can change depending on the market demand & supply pressure for EVO-based tokens. Interest[#] is computed individually for each EVO holder.
-
-Total average transfer rate for an address
-<img src="https://render.githubusercontent.com/render/math?math=%5Cavg(Rt%20%
 
 ![](https://cdn.mathpix.com/snip/images/riJoy07HScO9IfoAwmdyldN_EE0ut90HvtWyHG_L1KQ.original.fullsize.png)
 
@@ -73,6 +74,32 @@ Price dynamics of equation (1) depends on the transactions volume conducted by a
 
 Therefore it can be expected that the demand for EVO Protocol based tokens like EVO-[ERC20] will be able to represent the demand for the underlying asset, whereas EVO-[ERC20] represents the value of the underlying asset as a derivative function of the base asset, the ERC-20 asset. (i.e.a fixed unit of account for the ERC-20 asset, e.g. What Gwei is to Ethereum.)
 
+## Implementation Roadmap
+
+If MakerDAO Governance Adopts the proposal, which is to _only_ allow assets to be considered for collateralization with this additional middleware layer, it does not enable _Any_ asset to become automatically accepted, rather it allows any asset to add this functionality in their own asset proposal / onboarding application as currently defined by the current [MIP for said Risk Assessment](https://forum.makerdao.com/t/mip7c3-sp5-domain-team-onboarding-risk-domain-team/5476)
+
+Manifold Finance, the entity behind EVO Protocol is willing to partner and commit to an ERC-20 asset that is willing to be the first asset that is collateralized under this method. Meaning Manifold Finance will contribute up to a certain amount of liquidity (re: holding the asset for a certain amount of time then unwinding its position under a pre-defined term). This agreement would have to be coordinated with both MakerDAO Governance and the ERC-20 Asset's Operational Entity (e.g. to procure said asset OTC for example / coordinate with the team in defining the parameters of both recalculation period, scope of holdings, etc).
+
+We stress that not every ERC-20 asset will 'instantly' become acceptable to the MakerDAO Ecosystem, rather that this approach vastly reduces price volatility for assets that are otherwise of a sound nature (i.e. offers both functional and utility, strong community, active development, other qualitative measures, etc).
+
+Additional safeguards such as a Mutual Assurance Fund can be implemented as a 'sandbox' for ensuring the overall robustness of the MakerDAO Ecosystem. This proposal seeks to first establish a willingness to consider such a solution before 'getting into the weeds'.
+
+## Additional Links
+
 ### GitHub Documentation
 
 https://github.com/manifoldfinance/documentation
+
+### GitHub Repo for Implementation
+
+https://github.com/manifoldfinance/maker-evo
+
+Telegram: https://t.me/manifoldfi
+Telegram (personal): @sambacha
+Email: sam@freighttrust.com
+
+An Audit is being arranged. If developers from MakerDAO wish to be granted access to the currently private repository, that can be arranged easily. Please feel free to contact me about questions / concerns / comments.
+
+Regards,
+
+Sam
