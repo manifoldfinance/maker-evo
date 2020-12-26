@@ -1,0 +1,20 @@
+{
+  "name": "maker-evo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manifoldfinance/maker-evo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manifoldfinance/maker-evo/issues"
+  },
+  "homepage": "https://github.com/manifoldfinance/maker-evo#readme"
+}
